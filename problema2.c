@@ -92,7 +92,7 @@ void criaThreadsEstudantes(pthread_t *estudantes, pthread_attr_t *attrEstudantes
 
 void *vai_programar(int idEstudantes){
     int tempo_prog = rand() % 100000 + 100000;
-    printf("Sou o estudante %d. Vou estudar!\n", idEstudantes);
+    printf("Sou o estudante %d. Vou programar por %d tempo!\n", idEstudantes, tempo_prog);
     usleep(tempo_prog);
 }
 
@@ -159,10 +159,10 @@ void *monitor(void *param){
         }
         else{
         int ajuda_temp = rand() % 100000 + 100000; // tempo aleatorio de atendimento
-		printf("O monitor vair atender o estudante num %d.\n",cadeira_monitor);
+		//printf("O monitor vair atender o estudante num %d.\n",cadeira_monitor);
 
 		usleep(ajuda_temp);
-		printf("O estudante %d foi atendido.\n",cadeira_monitor);
+		printf("O estudante %d foi atendido por %d tempo.\n",cadeira_monitor, ajuda_temp);
 		sem_post(&ajudando_estudante);
         }
 	}
